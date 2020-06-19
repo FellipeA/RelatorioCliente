@@ -35,22 +35,6 @@ create table Pedido (
 	foreign key(codigo_cliente) references Cliente(codigo),
 	foreign key(codigo_produto) references Produto(codigo))
 
-SELECT ped.codigo_pedido, 
-			ped.codigo_cliente,
-			cli.nome,
-			cli.endereco+' - '+cli.numero_porta+', TEL:'+cli.telefone as endereco_cliente,
-			ped.previsao_entrega,
-			ped.codigo_produto,
-			prod.nome,
-			prod.valor_unitario,
-			ped.quantidade,
-			ped.quantidade * prod.valor_unitario as valor_total
-			FROM Pedido ped inner join Produto prod on prod.codigo = ped.codigo_produto
-					inner join Cliente cli on cli.codigo = ped.codigo_cliente 
-					where ped.codigo_cliente = 33601
-
-select * from Pedido
-
 SELECT ped.codigo_pedido,
 	ped.codigo_cliente,
 	cli.nome,
